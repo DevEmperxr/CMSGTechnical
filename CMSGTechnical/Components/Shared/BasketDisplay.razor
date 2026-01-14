@@ -20,9 +20,22 @@
             </div>
         </div>
     }
-    @* add currency *@
+
+    
     <div class="mt-3">
-        Total: £@Basket.MenuItems.Sum(i=>i.Price)
+        <div class="mt-3">
+            <strong>Subtotal: £@Basket.MenuItems.Sum(i => i.Price).ToString("F2")</strong>
+        </div>
+        <div>
+            <strong>Delivery Fee: £2.00</strong>
+        </div>
+        @if(Basket.MenuItems.Count > 0)
+        {
+            
+        <div class="mt-2">
+            <strong>Total: £@CalculateTotal().ToString("F2")</strong>
+        </div>
+        }
     </div>
 </div>
 
@@ -53,6 +66,13 @@
     public void Remove(MenuItemDto item)
     {
         Basket.MenuItems.Remove(item);
+    }
+
+    private decimal CalculateTotal()
+    {
+        const decimal deliveryFee = 2.00m;
+        var subtotal = Basket.MenuItems.Sum(i => i.Price);
+        return subtotal + deliveryFee;
     }
 
 
