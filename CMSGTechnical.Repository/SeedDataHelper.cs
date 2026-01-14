@@ -94,6 +94,7 @@ internal static class SeedDataHelper
             {
                 Id = id++, Order = 0,
                 Name = "Chocolate Cake",
+                Description = "Rich and decadent chocolate layer cake with creamy chocolate frosting.",
                 Price = 6.99m
             }
         );
