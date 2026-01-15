@@ -56,3 +56,25 @@ h1:focus {
     width: 2rem;
     line-height: 0;
 }
+
+
+
+/* Menu item hover effects */
+.menu-item {
+    transition: all 0.2s ease-in-out;
+    cursor: pointer;
+    padding: 0.75rem;
+    border-radius: 0.5rem;
+    border: 1px solid transparent;
+}
+
+    .menu-item:hover {
+        background-color: #f8f9fa;
+        border-color: #1b6ec2;
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+        transform: translateY(-2px);
+    }
+
+        .menu-item:hover .btn-primary {
+            background-color: #0d5aa7;
+        }
