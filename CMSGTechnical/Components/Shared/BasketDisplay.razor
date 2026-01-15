@@ -5,19 +5,21 @@
 @using MediatR
 
 <div class="basket">
-    
-    @foreach (var item in Basket.MenuItems)
+    @* add var to group items and get quantity *@
+    @foreach (var set in Basket.MenuItems.GroupBy(i => i))
     {
+        var item = set.Key;
 
         <div>
             <div>
-                @item.Name - @item.Price
+                @item.Name - @item.Price - Qty: @set.Count()
             </div>
             
             <div>
                 <button class="btn btn-primary btn-round" @onclick="() => Basket.MenuItems.Add(item)">+</button>
                 <button class="btn btn-primary btn-round" @onclick="() => Basket.MenuItems.Remove(item)">-</button>
             </div>
+
         </div>
     }
 
@@ -67,6 +69,7 @@
     {
         Basket.MenuItems.Remove(item);
     }
+
 
     private decimal CalculateTotal()
     {
