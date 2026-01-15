@@ -5,19 +5,18 @@
 @using MediatR
 
 <div class="basket">
-    @* add var to group items and get quantity *@
-    @foreach (var set in Basket.MenuItems.GroupBy(i => i))
+    @foreach (var group in BasketService.Basket.MenuItems.GroupBy(i => new {i.Name }  ))
     {
-        var item = set.Key;
+        var item = group.First();
 
         <div>
             <div>
-                @item.Name - @item.Price - Qty: @set.Count()
+                @item.Name - £@item.Price - @group.Count()
             </div>
             
             <div>
-                <button class="btn btn-primary btn-round" @onclick="() => Basket.MenuItems.Add(item)">+</button>
-                <button class="btn btn-primary btn-round" @onclick="() => Basket.MenuItems.Remove(item)">-</button>
+                <button class="btn btn-primary btn-round" @onclick="() => AddItem(item)">+</button>
+                <button class="btn btn-primary btn-round" @onclick="() => Remove(item)">-</button>
             </div>
 
         </div>
@@ -52,24 +51,29 @@
     [CascadingParameter]
     private BasketService BasketService { get; set; }
 
+
     protected override void OnInitialized()
     {
         Basket = BasketService.Basket;
         BasketService.OnChange += (sender, args) => StateHasChanged();
-    }
+    }   
 
 
-    public void AddItem(MenuItemDto item)
+    async public void AddItem(MenuItemDto item)
     {
-        Basket.MenuItems.Add(item);
+
+        await BasketService.Add(item);
         StateHasChanged();
     }
 
-    public void Remove(MenuItemDto item)
+    async public void Remove(MenuItemDto item)
     {
-        Basket.MenuItems.Remove(item);
+
+        await BasketService.Remove(item);
+        StateHasChanged();
     }
 
+  
 
     private decimal CalculateTotal()
     {
