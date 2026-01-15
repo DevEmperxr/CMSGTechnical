@@ -35,11 +35,14 @@
     private BasketService BasketService { get; set; }
 
     [Inject] private IMediator Mediator { get; set; } = default!;
+    [Inject] private IJSRuntime JSRuntime { get; set; } = default!;
 
     protected override async Task OnInitializedAsync()
     {
         var basket = await Mediator.Send(new GetBasket(1));
-        BasketService = new BasketService(basket);
+        BasketService = new BasketService(basket, JSRuntime);
+        // load from localStorage
+        await BasketService.InitializeAsync();
     }
 
 
