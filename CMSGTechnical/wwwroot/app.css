@@ -70,7 +70,7 @@ h1:focus {
 
     .menu-item:hover {
         background-color: #f8f9fa;
-        border-color: #1b6ec2;
+        border-color: mediumvioletred;
         box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
         transform: translateY(-2px);
     }
