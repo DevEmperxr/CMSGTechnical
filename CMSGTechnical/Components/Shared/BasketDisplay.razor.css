@@ -1,3 +1,78 @@
 ﻿*{
     color:white;
 }
+
+.basket {
+    display: flex;
+   flex-direction : column;
+}
+
+
+.basket-item {
+    background-color: #f5f5f5;
+    margin: 1rem;
+    padding: 0.75rem;
+    border-radius: 0.5rem;
+    border: 1px solid transparent;
+    border-color: mediumvioletred;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between
+
+}
+
+.basket-item > div {
+    color: black;
+}
+
+.basket-item-name{
+    font-weight: bold;
+    font-size: large
+}
+
+.basket-item-price {
+
+}
+
+.basket-item-quantity {
+    font-style: italic
+}
+.basket-item-buttons {
+    
+}
+
+
+.total-calculation {
+    background-color: #f3f3f3;
+    border: 1px solid transparent;
+    border-color: mediumvioletred;
+    justify-self:end;
+    padding: 1rem;
+
+}
+
+@media (min-width: 641px) {
+    .total-calculation {
+    position: absolute;
+    width: 400px;
+    bottom: 0
+    }
+}
+
+    .total-calculation > div > * {
+        color: black
+    }
+
+    .subtotal {
+        font-size:;
+    }
+
+    .delivery-fee {
+        font-size: small;
+        font-style: italic;
+    }
+
+    .total {
+        font-size: xx-large
+    }
