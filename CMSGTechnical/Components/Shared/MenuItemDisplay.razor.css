@@ -1,1 +1,35 @@
-﻿
+﻿* {
+    color: white;
+}
+
+.basket {
+    padding: 1rem;
+}
+
+/* Mobile responsive styles */
+@media (max-width: 640px) {
+    .basket {
+        padding: 0.5rem;
+        font-size: 0.9rem;
+    }
+
+        .basket .btn-sm {
+            padding: 0.2rem 0.4rem;
+            font-size: 0.75rem;
+        }
+
+        .basket .small {
+            font-size: 0.7rem;
+        }
+
+        .basket hr {
+            margin: 0.5rem 0;
+        }
+}
+
+/* Tablet and up */
+@media (min-width: 641px) {
+    .basket {
+        min-height: 200px;
+    }
+}
