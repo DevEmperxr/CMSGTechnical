@@ -47,16 +47,18 @@
     background-color: #f3f3f3;
     border: 1px solid transparent;
     border-color: mediumvioletred;
-    justify-self:end;
     padding: 1rem;
 
 }
 
 @media (min-width: 641px) {
+    .basket {
+        height: 100%;
+    }
     .total-calculation {
-    position: absolute;
-    width: 400px;
-    bottom: 0
+   width: 400px;
+   margin: auto;
+   margin-bottom:0;
     }
 }
 
@@ -76,3 +78,5 @@
     .total {
         font-size: xx-large
     }
+
+    
